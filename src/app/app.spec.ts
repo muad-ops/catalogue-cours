@@ -1,24 +1,26 @@
-import { TestBed } from '@angular/core/testing';
-import { App } from './app';
+import { Component } from '@angular/core';
 
-describe('App', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [App],
-    })
-      .compileComponents();
-  });
+import {
+  RouterOutlet,
+  RouterLink,
+  RouterLinkActive
+} from '@angular/router';
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(App);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
+import { EnTete } from './composants/en-tete/en-tete';
+import { PiedPage } from './composants/pied-page/pied-page';
 
-  it('should render title', async () => {
-    const fixture = TestBed.createComponent(App);
-    await fixture.whenStable();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, catalogue-cours');
-  });
-});
+@Component({
+  selector: 'app-root',
+  imports: [
+    RouterOutlet,
+    RouterLink,
+    RouterLinkActive,
+    EnTete,
+    PiedPage
+  ],
+  templateUrl: './app.html',
+  styleUrl: './app.css'
+})
+export class App {
+
+}
